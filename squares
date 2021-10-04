@@ -1,0 +1,50 @@
+# SQUARES
+# Need to clean this up more... it's definitely not efficient...
+
+import turtle
+import random
+
+screen = turtle.Screen()
+turtle.shape("square")
+turtle.resizemode("auto")
+turtle.pensize(5)
+turtle.penup()
+turtle.setpos(-300.00, -300.00)
+colors = ("#FE4365", "#2A363B", "#F9CDAD", "#C8C8A9", "#83AF9B")
+
+
+def forward(steps):
+    for x in range(steps):
+        turtle.color(random.choice(colors))
+        turtle.stamp()
+        turtle.forward(50)
+    turtle.stamp()
+
+
+def backward(steps):
+    for x in range(steps):
+        turtle.color(random.choice(colors))
+        turtle.stamp()
+        turtle.forward(50)
+    turtle.stamp()
+
+
+def row_reset(steps):
+    turtle.backward(steps * 50)
+    turtle.left(90)
+
+
+def row_up():
+    turtle.forward(50)
+    turtle.right(90)
+
+
+for i in range(11):
+    forward(12)
+    row_reset(12)
+    row_up()
+
+forward(12)
+
+
+screen.exitonclick()
